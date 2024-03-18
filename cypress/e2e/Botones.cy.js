@@ -13,12 +13,29 @@ describe('Suite de pruebas de login',() =>{
         cy.get('#doubleClickMessage').should('contain','You have done a double click')
     })
     
-    it.only('click derecho',()=>
+    it('click derecho',()=>
 {
         cy.visit('https://demoqa.com/buttons')
         cy.get('#rightClickBtn').rightclick()
-        cy.get('#rightClickMessage').should('contain','You have done a double click')
+        cy.get('#rightClickMessage').should('contain','You have done a right click')
 
 })
-    
+    it.only('interaction with canva',()=> {
+        cy.visit('https://example.cypress.io/commands/actions')
+        cy.get('#action-canvas').click('topLeft')
+        cy.get('#action-canvas').click('topRight')
+        cy.get('#action-canvas').click('top')
+        cy.get('#action-canvas').click('left')
+        cy.get('#action-canvas').click('bottom')
+        cy.get('#action-canvas').click('bottomLeft')
+        cy.get('#action-canvas').click('bottomRight')
+        cy.get('#action-canvas').click('right')
+        cy.get('#action-canvas').click(80,75)
+        cy.get('#action-canvas').click(170,175)
+
+        cy.get('.action-labels>.label').click({multiple:true})
+        cy.get('.action-opacity>.btn').click({force:true})
+    })
+
+
 })
